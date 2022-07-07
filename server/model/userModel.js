@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  Area: {
+  Location: {
     type: String,
     required: true,
   },
@@ -22,11 +22,11 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  // role: {
-  //     type: String,
-  //     enum: [roles.admin, roles.user],
-  //     default: roles.user,
-  //   },
+  role: {
+    type: String,
+    default: "user",
+    enum: ["admin", "user"],
+  },
 });
 
 module.exports = User = new mongoose.model("User", userSchema);

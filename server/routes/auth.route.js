@@ -17,8 +17,8 @@ router.get("/signin", (req, res) => {
 
 // USER SIGNUP
 router.post("/signup", (req, res) => {
-  const { name, email, phone, area, password } = req.body;
-  if (!name || !email || !phone || !area || !password) {
+  const { name, email, phone, Location, password } = req.body;
+  if (!name || !email || !phone || !Location || !password) {
     return res.status(422).json({ error: "please add all the fields" });
   }
   User.findOne({ email: email }).then((savedUser) => {
@@ -31,7 +31,7 @@ router.post("/signup", (req, res) => {
         name,
         password: hashedPassword,
         phone,
-        area,
+        Location,
       });
       registerUser
         .save()
@@ -62,10 +62,10 @@ router.post("/signin", (req, res) => {
       .then((doMatch) => {
         if (doMatch) {
           const token = jwt.sign({ _id: savedUser._id }, keys.JWT_SECRET);
-          const { _id, email, name, phone, area } = savedUser;
+          const { _id, email, name, phone, Location } = savedUser;
           res.json({
             token,
-            user: { _id, name, email, phone, area, role },
+            user: { _id, name, email, phone, Location },
           });
         } else {
           return res.status(422).json({ error: "Invalid Email or password" });
@@ -76,3 +76,5 @@ router.post("/signin", (req, res) => {
       });
   });
 });
+
+module.exports = router;

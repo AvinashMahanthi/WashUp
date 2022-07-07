@@ -4,6 +4,9 @@ const path = require("path");
 const port = process.env.PORT || 8080;
 const connectToDB = require("./db/connection");
 const User = require("./model/userModel");
+const Admin = require("./model/adminModel");
+const Service = require("./model/CarServiceModel");
+const Slot = require("./model/slotShedule");
 require("dotenv").config();
 
 const bcrypt = require("bcryptjs");
@@ -31,7 +34,12 @@ app.listen(port, () => {
   console.log(`Server Listening on Port ${port}`);
 });
 
+// User Routes
 app.use("/", require("./routes/index.route"));
-// app.use("/doc", require("./routes/doc.route"));
 app.use("/auth", require("./routes/auth.route"));
-// app.use("/appoint", require("./routes/appointment.route"));
+// app.use("/admin/Service", require("./Admin/routes/service.route.js"));
+
+// Admin Routes
+app.use("/admin/auth", require("./Admin/routes/auth.route"));
+app.use("/admin", require("./Admin/routes/index.route"));
+app.use("/admin/Service", require("./Admin/routes/service.route.js"));
