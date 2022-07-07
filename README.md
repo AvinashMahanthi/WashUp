@@ -1,4 +1,4 @@
-# MED-STAR
+# WashUp
 An Application for booking car-wash
 
 ### Install Dependencies (Client)
