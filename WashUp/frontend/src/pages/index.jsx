@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Navbar from "../components/Navbar"
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Info from "../components/Info";
@@ -17,7 +17,7 @@ const Home = () => {
   return (
     <>
       {/* <Sidebar isOpen={isOpen} toggle={toggle} /> */}
-      {/* <Navbar  /> */}
+      <Navbar />
       <Hero />
 
       <Info {...homeObjOne} />

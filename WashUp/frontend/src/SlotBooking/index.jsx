@@ -1,4 +1,5 @@
 import { RiCustomerServiceFill } from "react-icons/ri";
+import NavBar from "../components/Navbar";
 import {
   SearchP,
   SearchH2,
@@ -12,6 +13,7 @@ import {
 const SlotBooking = (item) => {
   return (
     <>
+      <NavBar />
       <MainContainer>
         <SearchContainer>
           <h2 className="p-3">Booked Slot Details</h2>
@@ -27,7 +29,7 @@ const SlotBooking = (item) => {
                     </SearchH2>
                   </div>
                   <div className="col-md-6">
-                    <SearchP>Vivek</SearchP>
+                    <SearchP>{{ item }}</SearchP>
                     <strong>Address: </strong>
                     <SearchP>Old Mahabalipuram Road, Chennai</SearchP>
                     <SearchP>

@@ -1,6 +1,7 @@
 import { React, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
+// import AdminNavbar from "../components/AdminNavbar/Navbar";
 
 import {
   Container,
@@ -48,7 +49,7 @@ const AdminSignIn = () => {
           toast.error(data.error);
         } else {
           localStorage.setItem("jwt", data.token);
-          localStorage.setItem("user", JSON.stringify(data.user));
+          localStorage.setItem("admin", JSON.stringify(data.user));
           toast.success("Loged inn sucessfully 😋");
           history.push("/");
           // navigate("/");
@@ -61,6 +62,7 @@ const AdminSignIn = () => {
 
   return (
     <>
+      {/* <AdminNavbar /> */}
       <Container>
         <FormWrap>
           <FormContent>

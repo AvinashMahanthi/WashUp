@@ -3,16 +3,17 @@ const router = require("express").Router();
 const mongoose = require("mongoose");
 const ServiceCenter = mongoose.model("Service");
 const Slot = mongoose.model("Slot");
+const requireLogin = require("../middlewares/requireLogin");
 
 router.get("/", (req, res, next) => {
   res.send("Index Router");
 });
 
-router.get("/bookSlot", (req, res, next) => {
+router.get("/bookSlot", requireLogin, (req, res, next) => {
   res.send("Index Router");
 });
 
-router.post("/bookSlot", (req, res) => {
+router.post("/bookSlot", requireLogin, (req, res) => {
   const { ShopName, type, timeTaken, location, NamePlate, cost } = req.body;
   const slot = new Slot({
     ShopName,
@@ -33,7 +34,7 @@ router.post("/bookSlot", (req, res) => {
   res.json({ msg: "Your Information saved!" });
 });
 
-router.get("/GetServices", (req, res) => {
+router.get("/GetServices", requireLogin, (req, res) => {
   ServiceCenter.find()
     .populate("_id name location costPerCar phone")
     .then((centres) => {

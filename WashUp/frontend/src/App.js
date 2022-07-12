@@ -12,9 +12,12 @@ import SigninPage from "./pages/signin";
 import SignupPage from "./pages/signup";
 import AdminSigninPage from "./pages/adminSignin";
 import AdminSignupPage from "./pages/adminSignup";
-import DisplayTable from "./components/displayTable";
+// import DisplayTable from "./Dashboard/displayTable";
 import SearchDoctors from "./components/SearchServices";
 import SlotBooking from "./SlotBooking";
+import PageNotFound from "./pages/PageNotFound";
+import AddCarService from "./AddCarService";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 export const UserContext = createContext();
 
@@ -44,14 +47,11 @@ function App() {
         <Route path="/signup" component={SignupPage} exact />
         <Route path="/adminsignin" component={AdminSigninPage} exact />
         <Route path="/adminsignup" component={AdminSignupPage} exact />
-        <Route path="/dashboard" component={DisplayTable} exact />
+        {/* <Route path="/dashboard" component={DisplayTable} exact /> */}
         <Route path="/search" component={SearchDoctors} exact />
         <Route path="/confirm_Booking" component={SlotBooking} exact />
-
-        {/* <Route path="/specialists" component={specialists} exact />
-        <Route path="/consult" component={Consult} exact />
-        <Route path="/confirm_Booking" component={Confirm_Booking} exact />
-        <Route path="/doctors" component={ShowAllDoctors} exact /> */}
+        <Route path="/addCarService" component={AddCarService} exact />
+        <Route path="/*" component={PageNotFound} exact />
       </Switch>
     </Router>
   );

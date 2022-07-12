@@ -8,9 +8,10 @@ module.exports = (req, res, next) => {
   if (!authorization) {
     return res.status(401).json({ error: "You must be logged in no auth" });
   }
-  // const token = authorization.replace("Bearer ", "")
-  const bearer = authorization.split(" ");
-  const token = bearer[1];
+  // const token = authorization.replace("Bearer ", "");
+  // const bearer = authorization.split(" ");
+  // const token = bearer[1];
+  const token = authorization;
   jwt.verify(token, keys.JWT_SECRET, (err, payload) => {
     console.log(payload);
     if (err) {

@@ -3,12 +3,13 @@ const router = express.Router();
 const mongoose = require("mongoose");
 // const requireLogin = require("../middleware/requireLogin");
 const ServiceCenter = mongoose.model("Service");
+const checkAdmin = require("../../middlewares/checkAdmin");
 
-router.get("/addCarService", (req, res, next) => {
+router.get("/addCarService", checkAdmin, (req, res, next) => {
   res.send("Admin's add service Router");
 });
 
-router.post("/addCarService", (req, res) => {
+router.post("/addCarService", checkAdmin, (req, res) => {
   const { name, email, phone, location, costPerCar } = req.body;
   console.log(name, email, phone, location, costPerCar);
   if (!name || !email || !phone || !location || !costPerCar) {

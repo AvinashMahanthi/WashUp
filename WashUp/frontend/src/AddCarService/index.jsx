@@ -34,7 +34,6 @@ const AddCarService = () => {
         name,
         email,
         phone,
-        // gender,
         location,
         costPerCar,
       }),
@@ -86,7 +85,7 @@ const AddCarService = () => {
                   <Form.Group className="mb-3">
                     <FormLabel>
                       <Form.Label style={{ fontWeight: "bold" }}>
-                        Name
+                        Name of the Wash Center
                       </Form.Label>
                     </FormLabel>
                     <Form.Control
@@ -113,25 +112,10 @@ const AddCarService = () => {
                     />
                   </Form.Group>
 
-                  {/* <Form.Group className="mb-3">
-                    <FormLabel>
-                      <Form.Label style={{ fontWeight: "bold" }}>
-                        Gender
-                      </Form.Label>
-                    </FormLabel>
-                    <Form.Control
-                      type="text"
-                      placeholder="Gender"
-                      name="gender"
-                      value={gender}
-                      onChange={(e) => setGender(e.target.value)}
-                    />
-                  </Form.Group> */}
-
                   <Form.Group className="mb-3">
                     <FormLabel>
                       <Form.Label style={{ fontWeight: "bold" }}>
-                        location
+                        Location
                       </Form.Label>
                     </FormLabel>
                     <Form.Control
@@ -173,19 +157,19 @@ const AddCarService = () => {
                   <Form.Group className="mb-3">
                     <FormLabel>
                       <Form.Label style={{ fontWeight: "bold" }}>
-                        Password
+                        Service Charge
                       </Form.Label>
                     </FormLabel>
                     <Form.Control
                       type="text"
-                      placeholder="Password"
-                      name="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="cost per service"
+                      name="costperCar"
+                      value={costPerCar}
+                      onChange={(e) => setCostPerCar(e.target.value)}
                     />
                   </Form.Group>
                   <Button variant="primary" type="submit">
-                    SignUp
+                    Register
                   </Button>
                 </Form>
               </div>
