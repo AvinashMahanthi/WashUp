@@ -29,7 +29,7 @@ const SlotBooking = (item) => {
                     </SearchH2>
                   </div>
                   <div className="col-md-6">
-                    <SearchP>{{ item }}</SearchP>
+                    <SearchP props={{ item }}></SearchP>
                     <strong>Address: </strong>
                     <SearchP>Old Mahabalipuram Road, Chennai</SearchP>
                     <SearchP>

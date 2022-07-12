@@ -10,6 +10,10 @@ function NavBar() {
 
   const handleClick = () => setClick(!click);
   const history = useHistory();
+  const isLoggedin = localStorage.jwt;
+  console.log(isLoggedin);
+  const classNames = "hidden" ? { isLoggedin } : "nav-links";
+  // ? if : else
   return (
     <>
       <nav className="navbar">
@@ -58,7 +62,7 @@ function NavBar() {
                 exact
                 to="/"
                 activeClassName="active"
-                className="nav-links"
+                className={classNames}
                 onClick={() => {
                   localStorage.clear();
                   history.push("/signin");
